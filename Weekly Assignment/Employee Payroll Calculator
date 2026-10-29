@@ -1,0 +1,34 @@
+"""
+    Author: Jelani Givens II
+    Date: 10/29/2026
+"""
+
+
+def payroll(hours: float | None = None, rate: float | None = None) -> float:
+    
+    if hours is None or rate is None:
+        print("Could not compute payrate. Did not enter a value for hours worked and/or your hourly payrate.")
+
+    if not isinstance(hours, float): 
+        print("Please enter hours worked as a decimal value.")
+            
+    if not isinstance(rate, float):
+        print("Please enter employee's pay rate as a decimal value.")
+        
+    try:
+        return hours * rate
+            
+    except Exception as e:
+        print(f"Error occurred: {e}")
+
+
+if __name__ == "__main__":
+    while True:
+        hours: float = float(input("Please enter employee's amount of hours worked: "))
+        rate: float = float(input("Please enter employee's payrate: "))
+
+        pay: float = payroll(hours, rate)
+
+        if pay is not None:
+            print(f"Employee's pay: ${pay}")
+            break
